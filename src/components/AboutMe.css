@@ -1,0 +1,28 @@
+.about-me-border {
+    position: relative;
+  }
+  
+  .about-me-border::before {
+    content: "";
+    position: absolute;
+    top: -6px; /* Adjust to fit your border size */
+    left: -6px; /* Adjust to fit your border size */
+    right: -6px; /* Adjust to fit your border size */
+    bottom: -6px; /* Adjust to fit your border size */
+    border: 4px solid gold;
+    border-radius: inherit;
+    z-index: -1;
+  }
+  
+  .about-me-border::after {
+    content: "";
+    position: absolute;
+    top: -4px; /* Adjust to fit your border size */
+    left: -4px; /* Adjust to fit your border size */
+    right: -4px; /* Adjust to fit your border size */
+    bottom: -4px; /* Adjust to fit your border size */
+    border: 4px solid white;
+    border-radius: inherit;
+    z-index: -2;
+  }
+  

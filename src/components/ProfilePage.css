@@ -1,0 +1,85 @@
+/* src/components/ProfilePage.css */
+
+.profile-container {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9f9f9; /* Light background for a clean look */
+  padding: 2rem; /* Add some padding for spacing */
+  color: #333; /* Subtle text color for better readability */
+}
+
+.profile-header h1 {
+  font-size: 2.5rem; /* Slightly smaller font size for a minimalist feel */
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #222; /* Darker color for emphasis */
+}
+
+.profile-header .subtitle {
+  font-size: 1.25rem;
+  font-weight: 300; /* Light font weight for subtlety */
+  color: #666; /* Lighter color for subtitles */
+  margin-bottom: 1.5rem;
+}
+
+.info-item p {
+  font-size: 1rem; /* Standard font size for consistency */
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  color: #555; /* Subtle color for text */
+}
+
+.info-item .icon {
+  font-size: 1.75rem; /* Slightly smaller icons for a cleaner look */
+  color: #444; /* Match icon color to the text for uniformity */
+  margin-right: 0.5rem;
+}
+
+.profile-description,
+.profile-experience,
+.profile-education,
+.profile-projects,
+.profile-skills,
+.profile-languages,
+.profile-certificates,
+.profile-organizations {
+  margin-bottom: 2rem; /* Consistent spacing between sections */
+  padding: 1.5rem;
+  background-color: #fff; /* White background for sections */
+  border-radius: 8px; /* Rounded corners for a soft, modern look */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+}
+
+.project-item ul {
+  list-style-type: disc;
+  margin-left: 1.5rem; /* Reduce indentation for a sleeker appearance */
+  color: #444; /* Use a uniform text color */
+}
+
+/* Add some extra touches for interactivity */
+.profile-container a {
+  color: #007bff; /* Subtle blue color for links */
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.profile-container a:hover {
+  border-color: #007bff; /* Underline on hover for emphasis */
+}
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.moving-gradient-bg {
+  background: linear-gradient(270deg, #1c1c1c, #383838, #4f4f4f, #b1b1b1);
+  background-size: 400% 400%;
+  animation: moveGradient 20s ease infinite;
+}
