@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "//jihedoueslatiii.github.io/portfolio/static/css/main.9c034a3f.css",
+    "main.js": "//jihedoueslatiii.github.io/portfolio/static/js/main.a9575e75.js",
+    "static/js/453.acca0757.chunk.js": "//jihedoueslatiii.github.io/portfolio/static/js/453.acca0757.chunk.js",
+    "index.html": "//jihedoueslatiii.github.io/portfolio/index.html",
+    "main.9c034a3f.css.map": "//jihedoueslatiii.github.io/portfolio/static/css/main.9c034a3f.css.map",
+    "main.a9575e75.js.map": "//jihedoueslatiii.github.io/portfolio/static/js/main.a9575e75.js.map",
+    "453.acca0757.chunk.js.map": "//jihedoueslatiii.github.io/portfolio/static/js/453.acca0757.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9c034a3f.css",
+    "static/js/main.a9575e75.js"
+  ]
+}
