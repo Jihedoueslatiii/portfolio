@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 
 // Add paths to your logo images
 const logos = {
-  ESPRIT: '/esprit.png',
-  'Higher Institute of Information Technologies and Communication': '/istic.png',
+  ESPRIT: `${process.env.PUBLIC_URL}/esprit.png`,
+  'Higher Institute of Information Technologies and Communication': `${process.env.PUBLIC_URL}/istic.png`,
 };
 
 const educationData = [
@@ -34,7 +34,7 @@ const Education = () => (
         {/* Timeline Marker */}
         <span className="absolute -left-10 top-0 flex items-center justify-center w-14 h-14 bg-gray-700 border-4 border-gray-300 rounded-full shadow-lg">
           <motion.img
-            src={logos[edu.institution] || '/images/default-logo.png'} // Fallback logo if no specific logo is available
+            src={logos[edu.institution] || `${process.env.PUBLIC_URL}/images/default-logo.png`} // Fallback logo
             alt={edu.institution}
             className="w-10 h-10 rounded-full object-cover"
             whileHover={{ scale: 1.2 }}

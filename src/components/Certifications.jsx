@@ -13,21 +13,20 @@ const Certifications = () => (
       <FaCertificate className="text-blue-300 text-3xl mr-3" />
       Certifications
     </h2>
-    {[
-      {
+    {[{
         title: 'Huawei Certification Networking and Switching',
         description: 'Preparation Huawei Certification.',
-        logo: '/huawei.png'
+        logo: `${process.env.PUBLIC_URL}/huawei.png`
       },
       {
         title: 'Big Data Engineer - Mastery Award 2021',
         description: 'Passed the IBM Proctored Exam for "Big Data Engineer 2021".',
-        logo: '/ibmlogo.png'
+        logo: `${process.env.PUBLIC_URL}/ibmlogo.png`
       },
       {
         title: 'Scrum Fundamentals Certified (SFC™)',
         description: 'Issued by SCRUMstudy.',
-        logo: '/SFC.png' // Make sure you have this logo file in your public directory
+        logo: `${process.env.PUBLIC_URL}/SFC.png`
       }
     ].map(({ title, description, logo }) => (
       <motion.div
@@ -57,7 +56,7 @@ const Certifications = () => (
     >
       <div
         className="w-14 h-14 bg-white rounded-full shadow-md overflow-hidden flex items-center justify-center"
-        style={{ backgroundImage: `url('/univ.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }} // Placeholder for logo
+        style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/univ.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }} // Use PUBLIC_URL for logo
       />
       <div className="ml-3 flex-1">
         <h3 className="text-lg font-semibold mb-1">Certified Soft Skills Trainer</h3>

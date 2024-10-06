@@ -9,25 +9,24 @@ const projects = [
     technologies: "JavaFX, Symfony 5.4, FlutterFlow",
     screenshots: {
       web: [
-        
-        "/symfony1.png",
-        "/symfony3.png",
-        "/symfony6.png",
-        "/symfony4.png",
-        "/symfony2.png"
+        `${process.env.PUBLIC_URL}/symfony1.png`,
+        `${process.env.PUBLIC_URL}/symfony3.png`,
+        `${process.env.PUBLIC_URL}/symfony6.png`,
+        `${process.env.PUBLIC_URL}/symfony4.png`,
+        `${process.env.PUBLIC_URL}/symfony2.png`
       ],
       mobile: [
-        "/1.png",
-        "/2.png",
-        "/3.png",
-        "/4.png",
-        "/5.png"
+        `${process.env.PUBLIC_URL}/1.png`,
+        `${process.env.PUBLIC_URL}/2.png`,
+        `${process.env.PUBLIC_URL}/3.png`,
+        `${process.env.PUBLIC_URL}/4.png`,
+        `${process.env.PUBLIC_URL}/5.png`
       ],
       desktop: [
-        "/1.login.PNG",
-        "/3.addproject.PNG",
-        "/4.teams.PNG",
-        "/7.delivrables.PNG"
+        `${process.env.PUBLIC_URL}/1.login.PNG`,
+        `${process.env.PUBLIC_URL}/3.addproject.PNG`,
+        `${process.env.PUBLIC_URL}/4.teams.PNG`,
+        `${process.env.PUBLIC_URL}/7.delivrables.PNG`
       ]
     }
   },
@@ -36,7 +35,12 @@ const projects = [
     description: `• Developed a robust client management system for banking institutions, enabling efficient management of client accounts and profiles.\n\n• Implemented a secure registration process, user authentication, and account management features to ensure safe and personalized access.\n\n• Integrated a comprehensive transaction management system, allowing for real-time processing of transactions and detailed account activity tracking.`,
     technologies: 'PHP, HTML, CSS, JavaScript, jQuery, MySQL',
     screenshots: {
-      web: ['/home.png', '/client.png', '/loginbna.png', '/k.png']
+      web: [
+        `${process.env.PUBLIC_URL}/home.png`, 
+        `${process.env.PUBLIC_URL}/client.png`, 
+        `${process.env.PUBLIC_URL}/loginbna.png`, 
+        `${process.env.PUBLIC_URL}/k.png`
+      ]
     },
   },
   {
@@ -45,17 +49,18 @@ const projects = [
     technologies: 'PHP, Node.js, MongoDB, Stripe',
     screenshots: {
       web: [
-        '/Landing1.png',
-        '/Landing2.png',
-        '/Landing3.png', 
-        '/registration.png',
-        '/forget.png',
-        '/login_ssc.png',
-        '/Plans.png'
+        `${process.env.PUBLIC_URL}/Landing1.png`,
+        `${process.env.PUBLIC_URL}/Landing2.png`,
+        `${process.env.PUBLIC_URL}/Landing3.png`, 
+        `${process.env.PUBLIC_URL}/registration.png`,
+        `${process.env.PUBLIC_URL}/forget.png`,
+        `${process.env.PUBLIC_URL}/login_ssc.png`,
+        `${process.env.PUBLIC_URL}/Plans.png`
       ]
     },
   }
 ];
+
 
 const ProjectsAccordion = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);

@@ -9,7 +9,7 @@ const experiences = [
     location: 'Menzah 5',
     description: 'Developed a comprehensive web application for file management. Implemented user authentication and file upload features. Utilized React, Node.js, Express, and MongoDB for a scalable solution.',
     keywords: ['React', 'NodeJs', 'Express JS', 'MongoDB'],
-    logo: '/aaa.png',
+    logo: `${process.env.PUBLIC_URL}/aaa.png`, // Update path here
   },
   {
     title: 'End of Studies Internship at BNA',
@@ -17,7 +17,7 @@ const experiences = [
     location: 'Tunis',
     description: 'Implemented a sophisticated monitoring solution using Zabbix. Configured SNMP for efficient network management. Conducted extensive security tests and attack simulations to enhance system resilience.',
     keywords: ['Zabbix', 'Network Administration', 'SNMP', 'Security', 'Attacks Test'],
-    logo: '/Logo_BNA.png',
+    logo: `${process.env.PUBLIC_URL}/Logo_BNA.png`, // Update path here
   },
   {
     title: 'End of Year Internship at BNA',
@@ -25,9 +25,10 @@ const experiences = [
     location: 'Tunis',
     description: 'Developed a web application for managing customer information. Created functionalities for profile management and transaction tracking. Employed HTML, CSS, JavaScript, and PHP for a responsive design.',
     keywords: ['HTML', 'CSS', 'JS', 'PHP'],
-    logo: '/Logo_BNA.png',
+    logo: `${process.env.PUBLIC_URL}/Logo_BNA.png`, // Update path here
   },
 ];
+
 
 const keywordIcons = {
   React: <FaReact className="text-blue-600" />,

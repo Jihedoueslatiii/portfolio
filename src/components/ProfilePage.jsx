@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaLinkedin, FaGithub, FaEnvelope, FaDownload } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import ReactTypingEffect from 'react-typing-effect';
 import AboutMe from './AboutMe';
@@ -88,14 +88,15 @@ const ProfilePage = () => {
 
       <header className="relative p-12 bg-opacity-70 bg-gray-800 rounded-b-xl shadow-lg z-10">
         <div className="flex flex-col md:flex-row items-center md:items-start">
-          <motion.img
-            src="/jihed.png" // Replace with your actual profile picture path
-            alt="Jihed Oueslati"
-            className="w-48 h-48 md:w-60 md:h-60 rounded-full border-4 border-gray-400 mb-6 md:mb-0 md:mr-12 transition-transform hover:scale-110"
-            initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1, type: "spring", stiffness: 150 }}
-          />
+        <motion.img
+  src={`${process.env.PUBLIC_URL}/jihed.png`} // Update the path
+  alt="Jihed Oueslati"
+  className="w-48 h-48 md:w-60 md:h-60 rounded-full border-4 border-gray-400 mb-6 md:mb-0 md:mr-12 transition-transform hover:scale-110"
+  initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+  transition={{ duration: 1, type: "spring", stiffness: 150 }}
+/>
+
           <div className="text-center md:text-left">
             <motion.h1
               className="text-5xl md:text-6xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-gray-500 transition-transform hover:scale-110"
@@ -118,7 +119,7 @@ const ProfilePage = () => {
               <a href="https://linkedin.com/in/jihed-oueslati-7981b91ba" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
                 <FaLinkedin className="text-5xl md:text-6xl text-blue-400 hover:text-blue-300 transition" />
               </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
+              <a href="https://github.com/Jihedoueslatiii" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
                 <FaGithub className="text-5xl md:text-6xl text-gray-400 hover:text-gray-300 transition" />
               </a>
               <a href="mailto:jihedoueslati4@outlook.com" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
@@ -130,60 +131,25 @@ const ProfilePage = () => {
       </header>
 
       <main id="top" className="relative p-12 space-y-16 z-10">
-        <motion.div
-          className="fade-in"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-        >
+        <motion.div className="fade-in" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }}>
           <AboutMe />
         </motion.div>
-        <motion.div
-          className="fade-in"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4 }}
-        >
+        <motion.div className="fade-in" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.4 }}>
           <ValueProposition />
         </motion.div>
-        <motion.div
-          className="fade-in"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-        >
+        <motion.div className="fade-in" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.6 }}>
           <ProfessionalExperience />
         </motion.div>
-        <motion.div
-          className="fade-in"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.8 }}
-        >
+        <motion.div className="fade-in" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.8 }}>
           <Education />
         </motion.div>
-        <motion.div
-          className="fade-in"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1 }}
-        >
+        <motion.div className="fade-in" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 1 }}>
           <Projects />
         </motion.div>
-        <motion.div
-          className="fade-in"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.2 }}
-        >
+        <motion.div className="fade-in" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 1.2 }}>
           <Skills />
         </motion.div>
-        <motion.div
-          className="fade-in"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.4 }}
-        >
+        <motion.div className="fade-in" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 1.4 }}>
           <Certifications />
         </motion.div>
       </main>
@@ -198,13 +164,10 @@ const ProfilePage = () => {
         </div>
       </div>
       <div className="fixed right-6 bottom-8 z-50">
-        <a href="/jihed-oueslati.pdf" download="Jihed-oueslatipdf">
-          <button className="shiny-button">
-            Download CV
-          </button>
+        <a href="/jihed-oueslati.pdf" download="Jihed-oueslati.pdf">
+          <button className="shiny-button mt-8">Download CV</button>
         </a>
       </div>
-
       <footer className="relative p-12 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 rounded-t-xl shadow-lg z-10">
   <div className="container mx-auto text-center space-y-6">
     {/* Social Media Links */}
@@ -232,6 +195,15 @@ const ProfilePage = () => {
   </div>
 </footer>
 
+      {/* Scroll Percentage Indicator */}
+      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
+        <div className="relative bg-gray-800 rounded-full shadow-lg">
+          <div
+            className="h-2 bg-yellow-500 rounded-full"
+            style={{ width: `${scrollPercentage}%` }}
+          />
+        </div>
+      </div>
     </div>
   );
 };
