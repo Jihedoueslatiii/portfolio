@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.9c034a3f.css",
-    "main.js": "/portfolio/static/js/main.5b3f4b2a.js",
-    "static/js/453.acca0757.chunk.js": "/portfolio/static/js/453.acca0757.chunk.js",
-    "index.html": "/portfolio/index.html",
-    "main.9c034a3f.css.map": "/portfolio/static/css/main.9c034a3f.css.map",
-    "main.5b3f4b2a.js.map": "/portfolio/static/js/main.5b3f4b2a.js.map",
-    "453.acca0757.chunk.js.map": "/portfolio/static/js/453.acca0757.chunk.js.map"
+    "main.css": "//jihedoueslatiii.github.io/portfolio/static/css/main.9c034a3f.css",
+    "main.js": "//jihedoueslatiii.github.io/portfolio/static/js/main.f180d892.js",
+    "static/js/453.acca0757.chunk.js": "//jihedoueslatiii.github.io/portfolio/static/js/453.acca0757.chunk.js",
+    "index.html": "//jihedoueslatiii.github.io/portfolio/index.html",
+    "main.9c034a3f.css.map": "//jihedoueslatiii.github.io/portfolio/static/css/main.9c034a3f.css.map",
+    "main.f180d892.js.map": "//jihedoueslatiii.github.io/portfolio/static/js/main.f180d892.js.map",
+    "453.acca0757.chunk.js.map": "//jihedoueslatiii.github.io/portfolio/static/js/453.acca0757.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9c034a3f.css",
-    "static/js/main.5b3f4b2a.js"
+    "static/js/main.f180d892.js"
   ]
 }
