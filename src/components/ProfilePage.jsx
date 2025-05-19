@@ -167,7 +167,7 @@ const ProfilePage = () => {
         </div>
       </div>
    <div className="fixed top-6 right-6 z-50">
-  <a href="/jihed_resume.pdf" download="jihed-Oueslati (2).pdf">
+  <a href="/jihed-Oueslati(2).pdf" download="jihed-Oueslati(2).pdf">
     <button className="bg-gradient-to-r from-green-500 to-teal-600 text-white px-4 py-2 rounded-full shadow-md hover:from-teal-500 hover:to-green-600 hover:scale-105 transition-all duration-300 ease-in-out">
       ⬇ Download CV
     </button>

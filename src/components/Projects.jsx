@@ -48,7 +48,7 @@ const projects = [
     }
   },
   {
-    name: 'Advances File Management',
+    name: 'Advanced File Management',
     description: `• Implemented the document and folder management system, allowing users to organize and store files efficiently.\n\n• Developed user roles and permissions, enabling customized access control for different types of users.\n\n• Designed and integrated a dashboard for visualizing folder and document statistics, enhancing user interaction and experience.`,
     technologies: 'PHP, Node.js, MongoDB, Stripe',
     screenshots: {
@@ -57,7 +57,6 @@ const projects = [
         `${process.env.PUBLIC_URL}/Landing2.png`,
         `${process.env.PUBLIC_URL}/Landing3.png`,
         `${process.env.PUBLIC_URL}/registration.png`,
-        `${process.env.PUBLIC_URL}/forget.png`,
         `${process.env.PUBLIC_URL}/login_ssc.png`,
         `${process.env.PUBLIC_URL}/Plans.png`
       ]
