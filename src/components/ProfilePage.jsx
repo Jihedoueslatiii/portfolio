@@ -9,6 +9,8 @@ import Projects from './Projects';
 import Skills from './Skills';
 import Certifications from './Certifications';
 import ValueProposition from './ValueProposition';
+import ContactForm from './ContactForm';
+
 
 const ProfilePage = () => {
   const [scrollPercentage, setScrollPercentage] = useState(0);
@@ -45,6 +47,7 @@ const ProfilePage = () => {
   };
 
   return (
+    
     <div className="relative min-h-screen text-gray-100 overflow-hidden bg-gradient-to-r from-blue-500 to-purple-500 animate-gradient">
       {/* Animated Background */}
       <style>
@@ -163,11 +166,42 @@ const ProfilePage = () => {
           {formatDate(currentTime)}
         </div>
       </div>
-      <div className="fixed right-6 bottom-8 z-50">
-        <a href="/jihed-oueslati.pdf" download="Jihed-oueslati.pdf">
-          <button className="shiny-button mt-8">Download CV</button>
-        </a>
-      </div>
+   <div className="fixed top-6 right-6 z-50">
+  <a href="/jihed_resume.pdf" download="jihed-Oueslati (2).pdf">
+    <button className="bg-gradient-to-r from-green-500 to-teal-600 text-white px-4 py-2 rounded-full shadow-md hover:from-teal-500 hover:to-green-600 hover:scale-105 transition-all duration-300 ease-in-out">
+      ⬇ Download CV
+    </button>
+  </a>
+</div>
+
+<section
+      id="contact"
+      className="mt-20 px-8 py-16 bg-gradient-to-r from-white/40 to-gray-200/20 rounded-3xl shadow-lg max-w-3xl mx-auto backdrop-blur-md"
+    >
+      <motion.div
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-center mb-12"
+      >
+        <h2 className="text-4xl font-extrabold text-indigo-800 mb-3">
+          Get in Touch
+        </h2>
+        <p className="text-lg text-gray-600">
+          Have a question, idea, or opportunity? Let’s connect!
+        </p>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+        className="w-full max-w-xl mx-auto"
+      >
+        <ContactForm />
+      </motion.div>
+    </section>
+
       <footer className="relative p-12 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 rounded-t-xl shadow-lg z-10">
   <div className="container mx-auto text-center space-y-6">
     {/* Social Media Links */}
@@ -185,7 +219,7 @@ const ProfilePage = () => {
 
     {/* Copyright & Name */}
     <p className="text-lg md:text-xl font-semibold text-gray-400">
-      Created by <span className="text-white font-bold hover:text-indigo-400 transition-colors">Jihed Oueslati</span> &copy; 2024
+      Created by <span className="text-white font-bold hover:text-indigo-400 transition-colors">Jihed Oueslati</span> &copy; 2025
     </p>
 
     {/* Animated Border at the Top */}
@@ -204,6 +238,25 @@ const ProfilePage = () => {
           />
         </div>
       </div>
+      {showWelcome && (
+  <motion.div
+    className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl bg-black bg-opacity-50 px-6 py-4 rounded-xl z-50"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+  >
+    Welcome to My Portfolio 🚀
+  </motion.div>
+)}
+<button
+  className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-4 py-2 rounded-full shadow-lg hover:scale-105 hover:from-indigo-500 hover:to-purple-600 transition-all duration-300 ease-in-out"
+  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+>
+  ↑ Back to Top
+</button>
+
+
+
     </div>
   );
 };

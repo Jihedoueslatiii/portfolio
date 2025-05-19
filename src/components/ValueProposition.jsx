@@ -1,89 +1,80 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FaTachometerAlt, FaGraduationCap, FaCertificate, FaTools } from 'react-icons/fa';
+import React, { useState } from 'react';
 
-const ValueProposition = () => (
-  <motion.div
-    className="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 text-white p-8 rounded-lg shadow-2xl border-4 border-gray-700 hover:border-yellow-400 transition-transform hover:scale-105"
-    initial={{ opacity: 0, y: 50 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1 }}
-  >
-    <h2 className="text-4xl font-extrabold mb-6 text-yellow-400 tracking-wide">Why Choose Me?</h2>
-    <div className="space-y-8">
-      {/* Proven Experience */}
-      <motion.div
-        className="flex items-start space-x-6"
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="text-5xl text-yellow-500">
-          <FaTachometerAlt />
-        </div>
-        <div>
-          <h3 className="text-2xl font-semibold text-white mb-2">Proven Experience</h3>
-          <p className="text-base leading-relaxed text-gray-300">
-            With hands-on experience in developing web applications and implementing monitoring solutions, I bring a solid understanding of both frontend and backend technologies.
-          </p>
-        </div>
-      </motion.div>
+const ValueProposition = () => {
+  const [hoveredSection, setHoveredSection] = useState(null);
+  
+  const sections = [
+    {
+      id: 'experience',
+      icon: '⚡',
+      title: 'Proven Experience',
+      description: 'Real-world experience developing enterprise document management systems and implementing network monitoring solutions.'
+    },
+    {
+      id: 'education',
+      icon: '🎓',
+      title: 'Strong Educational Background',
+      description: 'Software Architecture Engineering student with foundation in Network and Systems Engineering.'
+    },
+    {
+      id: 'certifications',
+      icon: '🏆',
+      title: 'Valuable Certifications',
+      description: 'IBM Big Data Engineer certified professional with additional soft skills training certification.'
+    },
+    {
+      id: 'skills',
+      icon: '🛠️',
+      title: 'Tech-Stack Versatility',
+      description: 'Proficient in modern web development frameworks, multiple programming languages, and diverse database technologies.'
+    },
+    {
+      id: 'approach',
+      icon: '💡',
+      title: 'Innovative Solutions',
+      description: 'Proven ability to deliver creative solutions using microservices architecture and machine learning integration.'
+    }
+  ];
 
-      {/* Strong Educational Background */}
-      <motion.div
-        className="flex items-start space-x-6"
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        <div className="text-5xl text-yellow-500">
-          <FaGraduationCap />
+  return (
+    <div className="bg-gradient-to-r from-gray-700 to-gray-900 text-white p-4 rounded-md shadow-md border-2 border-yellow-500 transition-transform hover:scale-105">
+      <h2 className="text-4xl font-bold mb-8 text-center text-yellow-400 border-b-2 border-yellow-500 pb-4">Why Choose ME </h2>
+      
+      <div className="space-y-6">
+        {sections.map((section) => (
+          <div 
+            key={section.id}
+            className={`flex items-start p-4 rounded-lg transition-all duration-300 ${
+              hoveredSection === section.id ? 'bg-gray-800 transform scale-105' : 'bg-gray-800/50'
+            }`}
+            onMouseEnter={() => setHoveredSection(section.id)}
+            onMouseLeave={() => setHoveredSection(null)}
+          >
+            <div className="text-4xl mr-6 text-yellow-500 bg-gray-700 h-16 w-16 flex items-center justify-center rounded-full">
+              {section.icon}
+            </div>
+            <div className="flex-1">
+              <h3 className="text-2xl font-semibold text-yellow-400 mb-2">{section.title}</h3>
+              <p className="text-gray-300 leading-relaxed">{section.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div className="mt-10 bg-gray-800 p-6 rounded-lg border-l-4 border-yellow-500">
+        <h3 className="text-xl font-semibold text-yellow-400 mb-3">Ready to Collaborate?</h3>
+        <p className="text-gray-300">
+          Multilingual software engineer combining technical expertise with leadership experience. Always ready to embrace new challenges and innovate with cutting-edge technologies!
+        </p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <span className="bg-gray-700 text-yellow-400 px-3 py-1 rounded-full text-sm">Big Data</span>
+          <span className="bg-gray-700 text-yellow-400 px-3 py-1 rounded-full text-sm">Web Development</span>
+          <span className="bg-gray-700 text-yellow-400 px-3 py-1 rounded-full text-sm">Microservices</span>
+          <span className="bg-gray-700 text-yellow-400 px-3 py-1 rounded-full text-sm">MERN Stack</span>
+          <span className="bg-gray-700 text-yellow-400 px-3 py-1 rounded-full text-sm">ML Integration</span>
         </div>
-        <div>
-          <h3 className="text-2xl font-semibold text-white mb-2">Strong Educational Background</h3>
-          <p className="text-base leading-relaxed text-gray-300">
-            Currently pursuing a degree in IT Engineering with a solid foundation in Network and Systems Engineering, I am equipped with the knowledge required to tackle complex engineering challenges.
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Relevant Certifications */}
-      <motion.div
-        className="flex items-start space-x-6"
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-      >
-        <div className="text-5xl text-yellow-500">
-          <FaCertificate />
-        </div>
-        <div>
-          <h3 className="text-2xl font-semibold text-white mb-2">Relevant Certifications</h3>
-          <p className="text-base leading-relaxed text-gray-300">
-            Certified as a Big Data Engineer and with a Huawei Networking and Switching certification, I am well-versed in cutting-edge technologies and methodologies.
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Diverse Skill Set */}
-      <motion.div
-        className="flex items-start space-x-6"
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-      >
-        <div className="text-5xl text-yellow-500">
-          <FaTools />
-        </div>
-        <div>
-          <h3 className="text-2xl font-semibold text-white mb-2">Diverse Skill Set</h3>
-          <p className="text-base leading-relaxed text-gray-300">
-            My skills span web development, programming, network management, and database administration. I’m proficient in HTML, CSS, JS, Python, Java, and network protocols.
-          </p>
-        </div>
-      </motion.div>
+      </div>
     </div>
-  </motion.div>
-);
-
+  );
+};
 export default ValueProposition;
