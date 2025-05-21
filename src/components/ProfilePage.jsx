@@ -115,9 +115,32 @@ const ProfilePage = () => {
                 cursor={"|"}
               />
             </motion.h1>
-            <p className="text-2xl md:text-3xl font-bold mb-6 text-gold" style={{ color: '#FFD700' }}>
-              Software Engineering Student - Big Data Certified Engineer
-            </p>
+   <p
+  className="text-2xl md:text-3xl font-bold mb-6 animate-fadeUp"
+  style={{
+    color: '#3B82F6',
+    animation: 'fadeUp 1.2s ease-out both'
+  }}
+>
+  Software Architecture Engineering Student - Big Data Certified Engineer
+</p>
+
+<style>
+{`
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+`}
+</style>
+
+
             <div className="flex justify-center md:justify-start gap-8 mt-6">
               <a href="https://linkedin.com/in/jihed-oueslati-7981b91ba" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
                 <FaLinkedin className="text-5xl md:text-6xl text-blue-400 hover:text-blue-300 transition" />
@@ -157,15 +180,7 @@ const ProfilePage = () => {
         </motion.div>
       </main>
 
-      {/* Alarm clock style Time & Date */}
-      <div className="absolute top-6 right-6 flex flex-col items-end">
-        <div className="clock-style text-4xl md:text-6xl">
-          {formatTime(currentTime)}
-        </div>
-        <div className="text-lg md:text-xl text-gray-400">
-          {formatDate(currentTime)}
-        </div>
-      </div>
+    
    <div className="fixed top-6 right-6 z-50">
 <a href={`${process.env.PUBLIC_URL}/JihedOueslati.pdf`} download="JihedOueslati.pdf">
     <button className="bg-gradient-to-r from-green-500 to-teal-600 text-white px-4 py-2 rounded-full shadow-md hover:from-teal-500 hover:to-green-600 hover:scale-105 transition-all duration-300 ease-in-out">
