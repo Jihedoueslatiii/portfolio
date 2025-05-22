@@ -122,7 +122,7 @@ const ProfilePage = () => {
     animation: 'fadeUp 1.2s ease-out both'
   }}
 >
-  Software Architecture Engineering Student - Big Data Certified Engineer
+  Software  Engineering Student - Big Data Certified Engineer
 </p>
 
 <style>
