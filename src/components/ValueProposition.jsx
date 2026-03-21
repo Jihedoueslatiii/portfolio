@@ -1,80 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { FaVial, FaCogs, FaRobot, FaTools, FaShieldAlt, FaAward } from 'react-icons/fa';
 
-const ValueProposition = () => {
-  const [hoveredSection, setHoveredSection] = useState(null);
-  
-  const sections = [
-    {
-      id: 'experience',
-      icon: '⚡',
-      title: 'Proven Experience',
-      description: 'Real-world experience developing enterprise document management systems and implementing network monitoring solutions.'
-    },
-    {
-      id: 'education',
-      icon: '🎓',
-      title: 'Strong Educational Background',
-      description: 'Software Architecture Engineering student with foundation in Network and Systems Engineering.'
-    },
-    {
-      id: 'certifications',
-      icon: '🏆',
-      title: 'Valuable Certifications',
-      description: 'IBM Big Data Engineer certified professional with additional soft skills training certification.'
-    },
-    {
-      id: 'skills',
-      icon: '🛠️',
-      title: 'Tech-Stack Versatility',
-      description: 'Proficient in modern web development frameworks, multiple programming languages, and diverse database technologies.'
-    },
-    {
-      id: 'approach',
-      icon: '💡',
-      title: 'Innovative Solutions',
-      description: 'Proven ability to deliver creative solutions using microservices architecture and machine learning integration.'
-    }
-  ];
+const items = [
+  { icon:<FaVial />, t:'Test-first approach', d:'ISTQB methodology. Functional, non-functional, security, regression — automated.' },
+  { icon:<FaCogs />, t:'CI/CD pipelines', d:'Jenkins, SonarQube gates, Docker, Kubernetes, Prometheus + Grafana.' },
+  { icon:<FaRobot />, t:'AI-powered QA', d:'SwaggerSense: auto-generates test scenarios from Swagger specs via Gemini.' },
+  { icon:<FaTools />, t:'Full-stack delivery', d:'Angular, React, Spring Boot, Node.js, MongoDB, MySQL.' },
+  { icon:<FaShieldAlt />, t:'Quality monitoring', d:'Real-time dashboards, automated alerts, PDF reporting.' },
+  { icon:<FaAward />, t:'Certified', d:'IBM Big Data, AWS Cloud, Scrum SFC, Huawei HCIA.' },
+];
 
+export default function ValueProposition() {
   return (
-    <div className="bg-gradient-to-r from-gray-700 to-gray-900 text-white p-4 rounded-md shadow-md border-2 border-yellow-500 transition-transform hover:scale-105">
-      <h2 className="text-4xl font-bold mb-8 text-center text-yellow-400 border-b-2 border-yellow-500 pb-4">Why Choose ME </h2>
-      
-      <div className="space-y-6">
-        {sections.map((section) => (
-          <div 
-            key={section.id}
-            className={`flex items-start p-4 rounded-lg transition-all duration-300 ${
-              hoveredSection === section.id ? 'bg-gray-800 transform scale-105' : 'bg-gray-800/50'
-            }`}
-            onMouseEnter={() => setHoveredSection(section.id)}
-            onMouseLeave={() => setHoveredSection(null)}
-          >
-            <div className="text-4xl mr-6 text-yellow-500 bg-gray-700 h-16 w-16 flex items-center justify-center rounded-full">
-              {section.icon}
-            </div>
-            <div className="flex-1">
-              <h3 className="text-2xl font-semibold text-yellow-400 mb-2">{section.title}</h3>
-              <p className="text-gray-300 leading-relaxed">{section.description}</p>
+    <div>
+      <div className="label">What I do</div>
+      <h2 className="heading">Ship tested software, not just code</h2>
+      <div style={{ display:'grid',gridTemplateColumns:'repeat(auto-fit, minmax(270px, 1fr))',gap:8 }}>
+        {items.map(i => (
+          <div key={i.t} className="card" style={{ padding:'.95rem 1.05rem' }}>
+            <div style={{ display:'flex',gap:'.6rem',alignItems:'flex-start' }}>
+              <div style={{ width:32,height:32,borderRadius:8,background:'var(--blue-bg)',display:'flex',alignItems:'center',justifyContent:'center',color:'var(--blue)',fontSize:'.8rem',flexShrink:0 }}>{i.icon}</div>
+              <div>
+                <h3 style={{ fontWeight:600,fontSize:'.86rem',color:'var(--text)',marginBottom:2 }}>{i.t}</h3>
+                <p style={{ fontSize:'.78rem',color:'var(--text-3)',lineHeight:1.5 }}>{i.d}</p>
+              </div>
             </div>
           </div>
         ))}
       </div>
-      
-      <div className="mt-10 bg-gray-800 p-6 rounded-lg border-l-4 border-yellow-500">
-        <h3 className="text-xl font-semibold text-yellow-400 mb-3">Ready to Collaborate?</h3>
-        <p className="text-gray-300">
-          Multilingual software engineer combining technical expertise with leadership experience. Always ready to embrace new challenges and innovate with cutting-edge technologies!
-        </p>
-        <div className="mt-4 flex flex-wrap gap-3">
-          <span className="bg-gray-700 text-yellow-400 px-3 py-1 rounded-full text-sm">Big Data</span>
-          <span className="bg-gray-700 text-yellow-400 px-3 py-1 rounded-full text-sm">Web Development</span>
-          <span className="bg-gray-700 text-yellow-400 px-3 py-1 rounded-full text-sm">Microservices</span>
-          <span className="bg-gray-700 text-yellow-400 px-3 py-1 rounded-full text-sm">MERN Stack</span>
-          <span className="bg-gray-700 text-yellow-400 px-3 py-1 rounded-full text-sm">ML Integration</span>
-        </div>
-      </div>
     </div>
   );
-};
-export default ValueProposition;
+}

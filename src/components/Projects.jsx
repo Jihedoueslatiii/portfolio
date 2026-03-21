@@ -1,229 +1,84 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FaCode } from 'react-icons/fa';
-
-// Add logos if you have logos for specific projects, or keep as emojis
-const projectLogos = {
- 
-};
+import { FaGithub, FaSearchPlus } from 'react-icons/fa';
 
 const projects = [
-  {
-    name: "CRM Sales Dashboard with Power BI",
-    description: `• Developed a powerful data visualization and analytics dashboard for a CRM sales management system using Power BI.\n\n• Transformed raw sales data into insightful dashboards, KPIs, and trend analyses to support business decision-making.\n\n• Integrated with CRM databases (MySQL and MongoDB) for real-time data updates, ensuring accurate and actionable insights for sales teams and managers.`,
-    technologies: "Power BI, MySQL, MongoDB, DAX, Data Modeling, ETL",
-    screenshots: {
-      web: [
-        `${process.env.PUBLIC_URL}/Capture d'écran 2025-05-18 215601.png`,
-        `${process.env.PUBLIC_URL}/Capture d'écran 2025-05-18 215635.png`,
-        `${process.env.PUBLIC_URL}/Capture d'écran 2025-05-18 215612.png`,
-        `${process.env.PUBLIC_URL}/Capture d'écran 2025-05-18 215622.png`
-      ]
-    }
-  },
-  {
-    name: "Trip Agency  management System",
-    description: `• Developed a comprehensive trip management system for a travel agency, enabling users to plan and manage their trips efficiently.\n• Built with Spring Boot (backend) and Angular (frontend) using a microservices architecture.\n• Ensures scalability, flexibility, and secure communication, with MySQL for efficient data storage.`,
-    technologies: "Angular, Spring Boot, MySQL, MongoDB, Tailwind",
-    screenshots: {
-      web: [
-        `${process.env.PUBLIC_URL}/mellouli.jpeg`,
-        `${process.env.PUBLIC_URL}/yassine.jpeg`
-      ]
-    }
-  },
-  {
-    name: "Construction Project Management",
-    description: `• A comprehensive, modular web-based solution designed to streamline construction project workflows.\n• Built with Spring Boot (backend) and Angular (frontend) using a microservices architecture.\n• Ensures scalability, flexibility, and secure communication, with MySQL for efficient data storage.`,
-    technologies: "Spring Boot, Angular, Microservices, MySQL",
-    screenshots: {
-      web: [
-        `${process.env.PUBLIC_URL}/list.png`,
-        `${process.env.PUBLIC_URL}/496623651_1000479918928003_4945885882118240342_n.png`,
-        `${process.env.PUBLIC_URL}/mellouli.jpeg`,
-        `${process.env.PUBLIC_URL}/yassine.jpeg`,
-        `${process.env.PUBLIC_URL}/teams.jpeg`,
-        `${process.env.PUBLIC_URL}/kanban.png`
-      ]
-    }
-  },
-  {
-    name: 'Advanced File Management',
-    description: `• Implemented the document and folder management system, allowing users to organize and store files efficiently.\n\n• Developed user roles and permissions, enabling customized access control for different types of users.\n\n• Designed and integrated a dashboard for visualizing folder and document statistics, enhancing user interaction and experience.`,
-    technologies: 'PHP, Node.js, MongoDB, Stripe',
-    screenshots: {
-      web: [
-        `${process.env.PUBLIC_URL}/Landing1.png`,
-        `${process.env.PUBLIC_URL}/Landing2.png`,
-        `${process.env.PUBLIC_URL}/Landing3.png`,
-        `${process.env.PUBLIC_URL}/registration.png`,
-        `${process.env.PUBLIC_URL}/login_ssc.png`,
-        `${process.env.PUBLIC_URL}/Plans.png`
-      ]
-    }
-  },
-  {
-    name: "Collaborative Project Management Solution",
-    description: `• Developed and implemented a comprehensive platform for managing collaborative projects between supervisors and students across desktop, web, and mobile environments.\n\n• Facilitated project supervision by allowing supervisors to provide feedback, comments, and reviews, and assign grades based on the progress and quality of work.\n\n• Enabled students to earn 'gems' for successfully completing project milestones, which can be redeemed in a marketplace for educational vouchers and resources, promoting further learning and growth.`,
-    technologies: "JavaFX, Symfony 5.4, FlutterFlow",
-    screenshots: {
-      web: [
-        `${process.env.PUBLIC_URL}/symfony1.png`,
-        `${process.env.PUBLIC_URL}/symfony3.png`,
-        `${process.env.PUBLIC_URL}/symfony6.png`,
-        `${process.env.PUBLIC_URL}/symfony4.png`,
-        `${process.env.PUBLIC_URL}/symfony2.png`
-      ],
-      mobile: [
-        `${process.env.PUBLIC_URL}/1.png`,
-        `${process.env.PUBLIC_URL}/2.png`,
-        `${process.env.PUBLIC_URL}/3.png`,
-        `${process.env.PUBLIC_URL}/4.png`,
-        `${process.env.PUBLIC_URL}/5.png`
-      ],
-      desktop: [
-        `${process.env.PUBLIC_URL}/1.login.PNG`,
-        `${process.env.PUBLIC_URL}/3.addproject.PNG`,
-        `${process.env.PUBLIC_URL}/4.teams.PNG`,
-        `${process.env.PUBLIC_URL}/7.delivrables.PNG`
-      ]
-    }
-  },
-  {
-    name: 'Banking Client Management',
-    description: `• Developed a robust client management system for banking institutions, enabling efficient management of client accounts and profiles.\n\n• Implemented a secure registration process, user authentication, and account management features to ensure safe and personalized access.\n\n• Integrated a comprehensive transaction management system, allowing for real-time processing of transactions and detailed account activity tracking.`,
-    technologies: 'PHP, HTML, CSS, JavaScript, jQuery, MySQL',
-    screenshots: {
-      web: [
-        `${process.env.PUBLIC_URL}/home.png`,
-        `${process.env.PUBLIC_URL}/client.png`,
-        `${process.env.PUBLIC_URL}/loginbna.png`,
-        `${process.env.PUBLIC_URL}/k.png`
-      ]
-    }
-  }
+  { name:'InsightWeb', sub:'Website Performance Analyzer', desc:'Self-hosted tool analyzing performance, SEO, accessibility & best practices with exact point breakdowns. Playwright-powered headless browser automation with precise scoring algorithms.', tech:['Python','Flask','Playwright','REST API'], gh:'https://github.com/Jihedoueslatiii', feat:true, imgs:[] },
+  { name:'SwaggerSense', sub:'AI-Powered API Tester', desc:'Reads Swagger specs, auto-generates functional, negative and security tests via Gemini, runs them, shows results in a dashboard.', tech:['Python','Flask','Gemini API','REST','Testing'], gh:'https://github.com/Jihedoueslatiii', feat:true, imgs:[] },
+  { name:'Smart Recruitment', sub:'Multi-LLM CV Scoring', desc:'AI scoring pipeline — job matching, quizzes, fraud detection, HR content generation across Gemini, GPT-5, Ollama.', tech:['React','FastAPI','MongoDB','AI/ML'], gh:'https://github.com/Jihedoueslatiii', feat:true, imgs:[] },
+  { name:'QRQC Dashboard', sub:'Safran Quality Control', desc:'KPI dashboards with AI analysis, automated PDF reports, scheduled email alerts.', tech:['Angular','Spring Boot','MsSQL','AI'], feat:true, imgs:[] },
+  { name:'Travel Agency', sub:'Microservices', desc:'Bookings, itineraries, client management. Eureka + API Gateway + Docker.', tech:['Angular','Spring Boot','Docker','MySQL'], gh:'https://github.com/Jihedoueslatiii',
+    imgs:[`${process.env.PUBLIC_URL}/mellouli.jpeg`,`${process.env.PUBLIC_URL}/yassine.jpeg`] },
+  { name:'CRM Dashboard', sub:'Power BI', desc:'Sales KPIs, trends, real-time database connections.', tech:['Power BI','MySQL','MongoDB','DAX'],
+    imgs:[`${process.env.PUBLIC_URL}/Capture d'écran 2025-05-18 215601.png`,`${process.env.PUBLIC_URL}/Capture d'écran 2025-05-18 215635.png`,`${process.env.PUBLIC_URL}/Capture d'écran 2025-05-18 215612.png`,`${process.env.PUBLIC_URL}/Capture d'écran 2025-05-18 215622.png`] },
+  { name:'Construction Mgmt', sub:'Workflows', desc:'Kanban, teams, progress tracking — microservices.', tech:['Spring Boot','Angular','MySQL'], gh:'https://github.com/Jihedoueslatiii',
+    imgs:[`${process.env.PUBLIC_URL}/list.png`,`${process.env.PUBLIC_URL}/teams.jpeg`,`${process.env.PUBLIC_URL}/kanban.png`] },
+  { name:'File Management', sub:'SaaS Platform', desc:'Role-based access, Stripe billing, usage analytics.', tech:['PHP','Node.js','MongoDB','Stripe'], gh:'https://github.com/Jihedoueslatiii',
+    imgs:[`${process.env.PUBLIC_URL}/Landing1.png`,`${process.env.PUBLIC_URL}/Landing2.png`,`${process.env.PUBLIC_URL}/Plans.png`] },
+  { name:'Collab Projects', sub:'Cross-Platform', desc:'Desktop + web + mobile project management with gamified milestones.', tech:['JavaFX','Symfony','FlutterFlow'], gh:'https://github.com/Jihedoueslatiii',
+    imgs:[`${process.env.PUBLIC_URL}/symfony1.png`,`${process.env.PUBLIC_URL}/symfony3.png`,`${process.env.PUBLIC_URL}/symfony6.png`] },
 ];
 
-const ProjectsAccordion = () => {
-  const [expandedIndex, setExpandedIndex] = useState(null);
-  const [selectedPlatform, setSelectedPlatform] = useState('web');
-  const [modalImage, setModalImage] = useState(null);
-
-  const handleAccordionClick = (index) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
-    setSelectedPlatform('web');
-  };
-
-  const handlePlatformClick = (platform) => {
-    setSelectedPlatform(platform);
-  };
-
-  const handleImageClick = (src) => {
-    setModalImage(src);
-  };
-
-  const closeModal = () => {
-    setModalImage(null);
-  };
+export default function Projects() {
+  const [covers, setCovers] = useState({});
+  const [modal, setModal] = useState(null);
 
   return (
-    <motion.div
-      className="p-6 text-white"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
-      <h2 className="flex items-center text-2xl font-bold mb-6">
-        <FaCode className="text-indigo-500 text-3xl mr-2" />
-        Projects
-      </h2>
-      <div className="space-y-5">
-        {projects.map(({ name, description, technologies, screenshots }, index) => (
-          <div
-            key={index}
-            className="bg-gradient-to-br from-gray-800 to-gray-900 p-5 rounded-xl shadow-lg border border-gray-700"
-          >
-            <div
-              onClick={() => handleAccordionClick(index)}
-              className="cursor-pointer flex justify-between items-center"
-            >
-              <div className="flex items-center gap-3">
-                <img
-                  src={projectLogos[name] || 'https://img.icons8.com/emoji/48/laptop-emoji.png'}
-                  alt={name}
-                  className="w-10 h-10 object-contain rounded-full"
-                />
-                <h3 className="text-lg font-semibold">{name}</h3>
+    <div>
+      <div className="label">Projects</div>
+      <h2 className="heading">Things I've built & tested</h2>
+
+      <div className="pgrid" style={{ display:'grid',gridTemplateColumns:'repeat(auto-fill, minmax(285px, 1fr))',gap:10 }}>
+        {projects.map((p,i) => {
+          const ci = covers[i] || 0;
+          const has = p.imgs?.length > 0;
+          return (
+            <div key={i} className={`pc${p.feat?' feat':''}`}>
+              {has ? (
+                <div style={{ position:'relative',overflow:'hidden' }}>
+                  <img src={p.imgs[ci]} alt={p.name} className="pc-img" onClick={() => setModal({imgs:p.imgs,idx:ci})} />
+                  <div onClick={() => setModal({imgs:p.imgs,idx:ci})} style={{ position:'absolute',top:8,right:8,width:24,height:24,borderRadius:6,background:'rgba(0,0,0,.4)',display:'flex',alignItems:'center',justifyContent:'center',color:'#fff',fontSize:'.55rem',cursor:'pointer',transition:'background .2s' }}><FaSearchPlus /></div>
+                  {p.imgs.length > 1 && <div style={{ position:'absolute',bottom:8,left:8,fontSize:'.6rem',color:'#fff',background:'rgba(0,0,0,.45)',padding:'1px 6px',borderRadius:4 }}>{ci+1}/{p.imgs.length}</div>}
+                </div>
+              ) : (
+                <div className="pc-ph"><span>{p.name.charAt(0)}</span></div>
+              )}
+              {has && p.imgs.length > 1 && (
+                <div className="pc-thumbs">
+                  {p.imgs.map((src,j) => <img key={j} src={src} alt="" className={j===ci?'on':''} onClick={() => setCovers(c => ({...c,[i]:j}))} />)}
+                </div>
+              )}
+              <div className="pc-body">
+                <div style={{ display:'flex',alignItems:'center',gap:6,marginBottom:2 }}>
+                  <h3 style={{ fontWeight:700,fontSize:'.9rem',color:'var(--navy)',margin:0 }}>{p.name}</h3>
+                  {p.feat && <span className="pill pill-b">Featured</span>}
+                </div>
+                <p style={{ fontSize:'.7rem',color:'var(--text-4)',fontWeight:500,marginBottom:5 }}>{p.sub}</p>
+                <p style={{ fontSize:'.8rem',color:'var(--text-2)',lineHeight:1.55,marginBottom:8,flex:1 }}>{p.desc}</p>
+                <div style={{ display:'flex',flexWrap:'wrap',gap:3,alignItems:'center' }}>
+                  {p.tech.map(t => <span key={t} className="tag">{t}</span>)}
+                  {p.gh && <a href={p.gh} target="_blank" rel="noopener noreferrer" className="gh"><FaGithub /> repo</a>}
+                </div>
               </div>
-              <span className={`transition-transform duration-300 ${expandedIndex === index ? 'rotate-180' : 'rotate-0'}`}>
-                ▼
-              </span>
             </div>
-
-            {expandedIndex === index && (
-              <div className="mt-4">
-                <p className="text-sm mb-4 whitespace-pre-line">{description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {technologies.split(',').map((tech) => (
-                    <span key={tech} className="bg-indigo-200 text-indigo-900 text-xs px-2 py-1 rounded-md font-medium">
-                      {tech.trim()}
-                    </span>
-                  ))}
-                </div>
-
-                {screenshots && Object.keys(screenshots).length > 1 && (
-                  <div className="flex gap-2 mb-4">
-                    {Object.keys(screenshots).map((platform) => (
-                      <button
-                        key={platform}
-                        onClick={() => handlePlatformClick(platform)}
-                        className={`text-sm px-3 py-1 rounded-full ${
-                          selectedPlatform === platform
-                            ? 'bg-indigo-600 text-white'
-                            : 'bg-gray-300 text-black'
-                        }`}
-                      >
-                        {platform}
-                      </button>
-                    ))}
-                  </div>
-                )}
-
-                <div className="flex overflow-x-auto gap-3">
-                  {screenshots[selectedPlatform]?.map((src, i) => (
-                    <img
-                      key={i}
-                      src={src}
-                      alt={`${name} Screenshot ${i + 1}`}
-                      className="w-40 h-24 object-cover rounded-md shadow-md cursor-pointer"
-                      onClick={() => handleImageClick(src)}
-                    />
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
+          );
+        })}
       </div>
 
-      {modalImage && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
-          onClick={closeModal}
-        >
-          <div className="relative">
-            <button
-              className="absolute -top-3 -right-3 bg-red-600 text-white rounded-full px-3 py-1"
-              onClick={closeModal}
-            >
-              ✕
-            </button>
-            <img src={modalImage} alt="Zoomed Screenshot" className="max-w-[90vw] max-h-[80vh] rounded-lg" />
-          </div>
+      {modal && (
+        <div className="modal-overlay" onClick={() => setModal(null)}>
+          <img src={modal.imgs[modal.idx]} alt="" className="main" style={{ maxWidth:'90vw',maxHeight:'78vh',borderRadius:10,boxShadow:'0 16px 50px rgba(0,0,0,.5)' }} />
+          {modal.imgs.length > 1 && (
+            <>
+              <div onClick={e => e.stopPropagation()} style={{ display:'flex',gap:5,background:'rgba(255,255,255,.08)',padding:'5px 7px',borderRadius:8 }}>
+                {modal.imgs.map((src,j) => <img key={j} src={src} alt="" onClick={() => setModal(m => ({...m,idx:j}))}
+                  style={{ width:54,height:36,objectFit:'cover',borderRadius:5,cursor:'pointer',border:j===modal.idx?'2px solid var(--blue)':'2px solid transparent',opacity:j===modal.idx?1:.4,transition:'all .15s' }} />)}
+              </div>
+              <button className="modal-nav prev" onClick={e => {e.stopPropagation();setModal(m => ({...m,idx:(m.idx-1+m.imgs.length)%m.imgs.length}));}}>&larr;</button>
+              <button className="modal-nav next" onClick={e => {e.stopPropagation();setModal(m => ({...m,idx:(m.idx+1)%m.imgs.length}));}}>&rarr;</button>
+            </>
+          )}
         </div>
       )}
-    </motion.div>
+    </div>
   );
-};
-
-export default ProjectsAccordion;
+}

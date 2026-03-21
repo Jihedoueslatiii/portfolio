@@ -1,89 +1,55 @@
 import React from 'react';
-import { useState } from 'react';
 
-const experiences = [
-  {
-    title: 'Summer Internship at Secure Shield Consulting',
-    date: '01/07/2024 – 15/08/2024',
-    location: 'Menzah 5',
-    description: 'Developed a comprehensive web application for file management. Implemented user authentication and file upload features. Utilized React, Node.js, Express, and MongoDB for a scalable solution.',
-    keywords: ['React', 'NodeJs', 'Express JS', 'MongoDB'],
-    logo: '📄', // Using emoji as placeholder
-  },
-  {
-    title: 'End of Studies Internship at BNA',
-    date: '02/2023 – 06/2023',
-    location: 'Tunis',
-    description: 'Implemented a sophisticated monitoring solution using Zabbix. Configured SNMP for efficient network management. Conducted extensive security tests and attack simulations to enhance system resilience.',
-    keywords: ['Zabbix', 'Network Administration', 'SNMP', 'Security', 'Attacks Test'],
-    logo: '🏦', // Using emoji as placeholder
-  },
-  {
-    title: 'End of Year Internship at BNA',
-    date: '07/2022 – 08/2022',
-    location: 'Tunis',
-    description: 'Developed a web application for managing customer information. Created functionalities for profile management and transaction tracking. Employed HTML, CSS, JavaScript, and PHP for a responsive design.',
-    keywords: ['HTML', 'CSS', 'JS', 'PHP'],
-    logo: '🏦', // Using emoji as placeholder
-  },
+const exp = [
+  { title:'Software Engineer — End of Studies Internship', co:'Safran Tunisie', date:'Feb–Jun 2026', loc:'Tunis',
+    desc:'End-of-studies internship focused on software engineering ',
+    tags:['Angular','Spring Boot','CI/CD','Docker','MsSQL','Microservices'], logo:`${process.env.PUBLIC_URL}/LOGO_SAFRAN_rvb.png`, latest:true },
+  { title:'Full Stack Engineer', co:'Safran Tunisie', date:'Jun–Aug 2025', loc:'Tunis',
+    desc:'QRQC dashboard (Angular + Spring Boot) for KPI visualization. AI-driven analysis, automated PDF reports, email alerts. Built testing pipeline from scratch.',
+    tags:['Angular','Spring Boot','MsSQL','AI','QRQC'], logo:`${process.env.PUBLIC_URL}/LOGO_SAFRAN_rvb.png` },
+  { title:'MERN Developer', co:'Secure Shield Consulting', date:'Jul–Aug 2024', loc:'Tunis',
+    desc:'Document management with role-based access, large file support, real-time analytics dashboard.',
+    tags:['React','Node.js','Express','MongoDB'], logo:`${process.env.PUBLIC_URL}/logo (1).png` },
+  { title:'Network Admin', co:'BNA', date:'Feb–Jun 2023', loc:'Tunis',
+    desc:'Deployed Zabbix + SNMP + SolarWinds monitoring across infrastructure.',
+    tags:['Zabbix','SNMP','SolarWinds'], logo:`${process.env.PUBLIC_URL}/Logo-bna-V213430.png` },
+  { title:'Web Developer', co:'BNA', date:'Jul–Aug 2022', loc:'Tunis',
+    desc:'Client management app — profiles and transactions with PHP + MySQL.',
+    tags:['PHP','MySQL','JavaScript'], logo:`${process.env.PUBLIC_URL}/Logo-bna-V213430.png` },
 ];
 
-// Simplified icon representation using emojis 
-const keywordIcons = {
-  React: '⚛️',
-  NodeJs: '📦',
-  'Express JS': '🚂', 
-  MongoDB: '🍃',
-  HTML: '📝',
-  CSS: '🎨',
-  JS: '⚡', 
-  PHP: '🐘',
-  Zabbix: '📊',
-  'Network Administration': '🌐',
-  SNMP: '📡',
-  Security: '🔒', 
-  'Attacks Test': '🛡️',
-};
-
-const VerticalTimeline = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-
+export default function ProfessionalExperience() {
   return (
-    <div className="relative border-l-4 border-yellow-500 ml-6 mt-12">
-      {experiences.map((exp, index) => (
-        <div
-          key={index}
-          className="mb-12 ml-6 relative"
-          onMouseEnter={() => setHoveredIndex(index)}
-          onMouseLeave={() => setHoveredIndex(null)}
-        >
-          {/* Timeline Marker */}
-          <span className="absolute -left-10 top-0 flex items-center justify-center w-14 h-14 bg-gray-700 border-4 border-yellow-500 rounded-full shadow-lg">
-            <div className="text-2xl">
-              {exp.logo}
-            </div>
-          </span>
-
-          {/* Timeline Content */}
-          <div className={`bg-gradient-to-r from-gray-700 to-gray-900 text-white p-4 rounded-md shadow-md border-2 border-yellow-500 transition-transform ${hoveredIndex === index ? 'scale-105' : ''}`}>
-            <h3 className="text-xl font-bold text-yellow-400">{exp.title}</h3>
-            <p className="text-sm text-gray-400">
-              <strong>{exp.date} | {exp.location}</strong>
-            </p>
-            <p className="mt-2 text-sm text-gray-300">{exp.description}</p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {exp.keywords.map((keyword, idx) => (
-                <div key={idx} className="flex items-center bg-gray-800 px-2 py-1 rounded-md text-sm text-yellow-400">
-                  <span className="mr-1">{keywordIcons[keyword]}</span>
-                  <span>{keyword}</span>
+    <div>
+      <div className="label">Experience</div>
+      <h2 className="heading">Where I've worked</h2>
+      <div className="tl">
+        <div className="tl-line" />
+        {exp.map((e,i) => (
+          <div key={i} style={{ position:'relative',marginBottom:'.85rem' }}>
+            <div className="tl-dot" />
+            <div className="card" style={{ padding:'1rem 1.1rem',marginLeft:10 }}>
+              <div style={{ display:'flex',gap:8,alignItems:'flex-start',marginBottom:4 }}>
+                <div className="logo-b" style={{ width:48,height:48,borderRadius:10 }}>
+                  <img src={e.logo} alt={e.co} style={{ padding:4 }} onError={ev => { ev.target.style.display='none'; ev.target.parentNode.innerHTML=`<span style="font-size:.6rem;color:var(--text-4);font-weight:600">${e.co.substring(0,3)}</span>`; }} />
                 </div>
-              ))}
+                <div style={{ flex:1 }}>
+                  <div style={{ display:'flex',justifyContent:'space-between',flexWrap:'wrap',gap:4 }}>
+                    <div style={{ display:'flex',alignItems:'center',gap:6,flexWrap:'wrap' }}>
+                      <h3 className="subhead" style={{ margin:0,fontSize:'.88rem' }}>{e.title}</h3>
+                      {e.latest && <span className="pill pill-n">Latest</span>}
+                    </div>
+                    <span style={{ fontSize:'.72rem',color:'var(--text-4)',fontWeight:500 }}>{e.date}</span>
+                  </div>
+                  <p style={{ fontSize:'.74rem',color:'var(--text-4)' }}>{e.co} &middot; {e.loc}</p>
+                </div>
+              </div>
+              <p style={{ fontSize:'.84rem',color:'var(--text-2)',lineHeight:1.6,marginBottom:6 }}>{e.desc}</p>
+              <div style={{ display:'flex',flexWrap:'wrap',gap:3 }}>{e.tags.map((t,j) => <span key={j} className="tag">{t}</span>)}</div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
-};
-
-export default VerticalTimeline;
+}
