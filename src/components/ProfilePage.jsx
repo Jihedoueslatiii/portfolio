@@ -93,8 +93,11 @@ export default function ProfilePage() {
           <div className="hero-flex" style={{ display:'flex',alignItems:'center',gap:'2.5rem',flexWrap:'wrap' }}>
             <motion.div initial={{ opacity:0,scale:.92 }} animate={{ opacity:1,scale:1 }} transition={{ duration:.4 }} style={{ flexShrink:0 }}>
               <div style={{ width:220,height:220,borderRadius:16,overflow:'hidden',border:'2px solid var(--border)',background:'var(--bg-2)' }}>
-                <img src={`${process.env.PUBLIC_URL}/Gemini_Generated_Image_tw9ff1tw9ff1tw9fa.png`} alt="Jihed Oueslati" style={{ width:'100%',height:'100%',objectFit:'cover' }} />
-              </div>
+<img 
+  src={`${process.env.PUBLIC_URL}/Gemini_Generated_Image_tw9ff1tw9ff1tw9fa.png`} 
+  alt="Jihed Oueslati" 
+  style={{ width:'100%', height:'100%', objectFit:'cover' }} 
+/>              </div>
             </motion.div>
             <div style={{ flex:1,minWidth:240 }}>
               <motion.div initial={{ opacity:0,y:10 }} animate={{ opacity:1,y:0 }} transition={{ delay:.06 }}>

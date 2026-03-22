@@ -2,20 +2,18 @@ import React, { useState } from 'react';
 import { FaGithub, FaSearchPlus } from 'react-icons/fa';
 
 const projects = [
-  { name:'InsightWeb', sub:'Website Performance Analyzer', desc:'Self-hosted tool analyzing performance, SEO, accessibility & best practices with exact point breakdowns. Playwright-powered headless browser automation with precise scoring algorithms.', tech:['Python','Flask','Playwright','REST API'], gh:'https://github.com/Jihedoueslatiii', feat:true, imgs:[] },
-  { name:'SwaggerSense', sub:'AI-Powered API Tester', desc:'Reads Swagger specs, auto-generates functional, negative and security tests via Gemini, runs them, shows results in a dashboard.', tech:['Python','Flask','Gemini API','REST','Testing'], gh:'https://github.com/Jihedoueslatiii', feat:true, imgs:[] },
-  { name:'Smart Recruitment', sub:'Multi-LLM CV Scoring', desc:'AI scoring pipeline — job matching, quizzes, fraud detection, HR content generation across Gemini, GPT-5, Ollama.', tech:['React','FastAPI','MongoDB','AI/ML'], gh:'https://github.com/Jihedoueslatiii', feat:true, imgs:[] },
-  { name:'QRQC Dashboard', sub:'Safran Quality Control', desc:'KPI dashboards with AI analysis, automated PDF reports, scheduled email alerts.', tech:['Angular','Spring Boot','MsSQL','AI'], feat:true, imgs:[] },
+  { name:'InsightWeb', sub:'Website Performance Analyzer', desc:'Self-hosted tool analyzing performance, SEO, accessibility & best practices with exact point breakdowns. Playwright-powered headless browser automation with precise scoring algorithms.', tech:['Python','Flask','Playwright','REST API'], gh:'https://github.com/Jihedoueslatiii/Website-Performance-Analyzer', feat:true, imgs:[] },
+  { name:'SwaggerSense', sub:'AI-Powered API Tester', desc:'Reads Swagger specs, auto-generates functional, negative and security tests via Gemini, runs them, shows results in a dashboard.', tech:['Python','Flask','Gemini API','REST','Testing'], gh:'https://github.com/Jihedoueslatiii', feat:true, imgs:[ `${process.env.PUBLIC_URL}/Copie de Commercial Presentation (1).jpg`] },
+  { name:'Smart Recruitment', sub:'Multi-LLM CV Scoring', desc:'AI scoring pipeline — job matching, quizzes, fraud detection, HR content generation across Gemini, GPT-5, Ollama.', tech:['React','FastAPI','MongoDB','AI/ML'], gh:'https://github.com/Jihedoueslatiii', feat:true, imgs:[`${process.env.PUBLIC_URL}/Capture d'écran 2025-10-22 193601.png`, `${process.env.PUBLIC_URL}/Capture d'écran 2025-10-22 193300.png` ] },
   { name:'Travel Agency', sub:'Microservices', desc:'Bookings, itineraries, client management. Eureka + API Gateway + Docker.', tech:['Angular','Spring Boot','Docker','MySQL'], gh:'https://github.com/Jihedoueslatiii',
-    imgs:[`${process.env.PUBLIC_URL}/mellouli.jpeg`,`${process.env.PUBLIC_URL}/yassine.jpeg`] },
-  { name:'CRM Dashboard', sub:'Power BI', desc:'Sales KPIs, trends, real-time database connections.', tech:['Power BI','MySQL','MongoDB','DAX'],
-    imgs:[`${process.env.PUBLIC_URL}/Capture d'écran 2025-05-18 215601.png`,`${process.env.PUBLIC_URL}/Capture d'écran 2025-05-18 215635.png`,`${process.env.PUBLIC_URL}/Capture d'écran 2025-05-18 215612.png`,`${process.env.PUBLIC_URL}/Capture d'écran 2025-05-18 215622.png`] },
+    imgs:[`${process.env.PUBLIC_URL}/tourism-4438308_1920.jpg`] },
+  
   { name:'Construction Mgmt', sub:'Workflows', desc:'Kanban, teams, progress tracking — microservices.', tech:['Spring Boot','Angular','MySQL'], gh:'https://github.com/Jihedoueslatiii',
-    imgs:[`${process.env.PUBLIC_URL}/list.png`,`${process.env.PUBLIC_URL}/teams.jpeg`,`${process.env.PUBLIC_URL}/kanban.png`] },
+    imgs:[`${process.env.PUBLIC_URL}/120331_11953955_2274970_e192cc9b_image.png`] },
   { name:'File Management', sub:'SaaS Platform', desc:'Role-based access, Stripe billing, usage analytics.', tech:['PHP','Node.js','MongoDB','Stripe'], gh:'https://github.com/Jihedoueslatiii',
     imgs:[`${process.env.PUBLIC_URL}/Landing1.png`,`${process.env.PUBLIC_URL}/Landing2.png`,`${process.env.PUBLIC_URL}/Plans.png`] },
   { name:'Collab Projects', sub:'Cross-Platform', desc:'Desktop + web + mobile project management with gamified milestones.', tech:['JavaFX','Symfony','FlutterFlow'], gh:'https://github.com/Jihedoueslatiii',
-    imgs:[`${process.env.PUBLIC_URL}/symfony1.png`,`${process.env.PUBLIC_URL}/symfony3.png`,`${process.env.PUBLIC_URL}/symfony6.png`] },
+    imgs:[`${process.env.PUBLIC_URL}/Capture d'écran 2024-02-17 180806.png`,`${process.env.PUBLIC_URL}/symfony1.png`,`${process.env.PUBLIC_URL}/symfony3.png`,`${process.env.PUBLIC_URL}/symfony6.png`] },
 ];
 
 export default function Projects() {
