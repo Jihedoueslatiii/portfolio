@@ -18,7 +18,6 @@ export default function ProfilePage() {
   const navRef = useRef(null);
   const ticking = useRef(false);
 
-  // Use refs + direct DOM manipulation for scroll progress to avoid re-render jank
   const handleScroll = useCallback(() => {
     if (!ticking.current) {
       ticking.current = true;
@@ -50,14 +49,11 @@ export default function ProfilePage() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
-  // IntersectionObserver for fade-in sections (replaces framer-motion whileInView which causes scroll issues)
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
+          if (entry.isIntersecting) entry.target.classList.add('visible');
         });
       },
       { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
@@ -68,12 +64,16 @@ export default function ProfilePage() {
 
   const go = id => {
     const el = document.getElementById(id);
-    if (el) window.scrollTo({ top: el.offsetTop - 58, behavior: 'smooth' });
+    if (el) window.scrollTo({ top: el.offsetTop - 64, behavior: 'smooth' });
   };
 
   return (
-    <div style={{ background: 'var(--bg)', minHeight: '100vh' }}>
-      <div className="progress" ref={progressRef} />
+    <div style={{ background: 'var(--bg)', minHeight: '100vh', position: 'relative' }}>
+      <div className="bg-aurora" />
+      <div className="bg-grid" />
+      <div className="bg-grain" />
+
+      <div className="progress" ref={progressRef} style={{ width: 0 }} />
 
       <nav className="nav" ref={navRef}>
         <div className="nav-logo">Jihed<span>.</span></div>
@@ -89,40 +89,37 @@ export default function ProfilePage() {
 
       {/* Hero */}
       <header className="hero">
-        <div className="wrap" style={{ position: 'relative', zIndex: 2 }}>
-          <div className="hero-flex" style={{ display:'flex',alignItems:'center',gap:'2.5rem',flexWrap:'wrap' }}>
-            <motion.div initial={{ opacity:0,scale:.92 }} animate={{ opacity:1,scale:1 }} transition={{ duration:.4 }} style={{ flexShrink:0 }}>
-              <div style={{ width:220,height:220,borderRadius:16,overflow:'hidden',border:'2px solid var(--border)',background:'var(--bg-2)' }}>
-<img 
-  src={`${process.env.PUBLIC_URL}/Gemini_Generated_Image_tw9ff1tw9ff1tw9fa.png`} 
-  alt="Jihed Oueslati" 
-  style={{ width:'100%', height:'100%', objectFit:'cover' }} 
-/>              </div>
+        <div className="wrap">
+          <div className="hero-flex" style={{ display:'flex',alignItems:'center',gap:'2.8rem',flexWrap:'wrap' }}>
+            <motion.div initial={{ opacity:0,scale:.92,y:8 }} animate={{ opacity:1,scale:1,y:0 }} transition={{ duration:.5,ease:[.22,1,.36,1] }} style={{ flexShrink:0 }}>
+              <div className="hero-photo">
+                <img
+                  src={`${process.env.PUBLIC_URL}/Gemini_Generated_Image_tw9ff1tw9ff1tw9fa.png`}
+                  alt="Jihed Oueslati"
+                />
+              </div>
             </motion.div>
-            <div style={{ flex:1,minWidth:240 }}>
-              <motion.div initial={{ opacity:0,y:10 }} animate={{ opacity:1,y:0 }} transition={{ delay:.06 }}>
-                <div style={{ display:'flex',alignItems:'center',gap:8,marginBottom:8,flexWrap:'wrap' }}>
+            <div style={{ flex:1,minWidth:260 }}>
+              <motion.div initial={{ opacity:0,y:12 }} animate={{ opacity:1,y:0 }} transition={{ delay:.06 }}>
+                <div style={{ display:'flex',alignItems:'center',gap:10,marginBottom:14,flexWrap:'wrap' }}>
                   <span className="pill pill-g">Open to work</span>
-                  <span style={{ fontSize:'.72rem',color:'var(--text-4)',display:'flex',alignItems:'center',gap:3 }}>
-                    <FaMapMarkerAlt style={{ fontSize:'.58rem' }} />Tunis, Tunisia
+                  <span style={{ fontSize:'.74rem',color:'var(--text-4)',display:'flex',alignItems:'center',gap:4 }}>
+                    <FaMapMarkerAlt style={{ fontSize:'.6rem' }} />Tunis, Tunisia
                   </span>
                 </div>
               </motion.div>
-              <motion.h1 initial={{ opacity:0,y:10 }} animate={{ opacity:1,y:0 }} transition={{ delay:.12 }}
-                style={{ fontSize:'2.2rem',fontWeight:700,lineHeight:1.1,marginBottom:8,color:'var(--navy)',letterSpacing:'-.03em' }}>
+              <motion.h1 className="hero-name" initial={{ opacity:0,y:12 }} animate={{ opacity:1,y:0 }} transition={{ delay:.12 }}>
                 <ReactTypingEffect text={["Jihed Oueslati"]} speed={70} eraseSpeed={50} typingDelay={300} cursor={"|"} />
               </motion.h1>
-              <motion.p initial={{ opacity:0,y:10 }} animate={{ opacity:1,y:0 }} transition={{ delay:.18 }}
-                style={{ fontSize:'.88rem',color:'var(--text-3)',marginBottom:10,fontWeight:500 }}>
-                Software Engineer &middot; QA & Testing &middot; CI/CD &middot; AI Integration
+              <motion.p className="hero-role" initial={{ opacity:0,y:12 }} animate={{ opacity:1,y:0 }} transition={{ delay:.18 }}>
+                Software Engineer &middot; QA &amp; Testing &middot; CI/CD &middot; AI Integration
               </motion.p>
-              <motion.p initial={{ opacity:0,y:10 }} animate={{ opacity:1,y:0 }} transition={{ delay:.24 }}
-                style={{ fontSize:'.88rem',color:'var(--text-3)',lineHeight:1.65,maxWidth:440,marginBottom:16 }}>
+              <motion.p className="hero-bio" initial={{ opacity:0,y:12 }} animate={{ opacity:1,y:0 }} transition={{ delay:.24 }}>
                 I build tested, reliable software. From automated test generation and CI/CD pipelines
                 to AI-driven quality workflows — I make sure code works before it ships.
               </motion.p>
-              <motion.div className="soc-row" initial={{ opacity:0,y:10 }} animate={{ opacity:1,y:0 }} transition={{ delay:.3 }}
-                style={{ display:'flex',gap:6 }}>
+              <motion.div className="soc-row" initial={{ opacity:0,y:12 }} animate={{ opacity:1,y:0 }} transition={{ delay:.3 }}
+                style={{ display:'flex',gap:8 }}>
                 <a href="https://linkedin.com/in/jihed-oueslati-7981b91ba" target="_blank" rel="noopener noreferrer" className="soc"><FaLinkedin /></a>
                 <a href="https://github.com/Jihedoueslatiii" target="_blank" rel="noopener noreferrer" className="soc"><FaGithub /></a>
                 <a href="mailto:oueslatiijihed@outlook.com" className="soc"><FaEnvelope /></a>
@@ -133,8 +130,8 @@ export default function ProfilePage() {
       </header>
 
       {/* Main */}
-      <main className="wrap" style={{ paddingBottom:'3rem' }}>
-        <div style={{ display:'flex',flexDirection:'column',gap:'2.25rem' }}>
+      <main className="wrap" style={{ paddingBottom:'3rem', position:'relative', zIndex:2 }}>
+        <div style={{ display:'flex',flexDirection:'column',gap:'2.5rem' }}>
           <section id="about" className="fade-section"><AboutMe /></section>
           <div className="divider" />
           <section className="fade-section"><ValueProposition /></section>
@@ -151,9 +148,9 @@ export default function ProfilePage() {
           <div className="divider" />
           <section id="contact" className="fade-section">
             <div className="contact-sec">
-              <div className="label">Contact</div>
-              <h2 className="heading" style={{ marginBottom:4 }}>Let's work together</h2>
-              <p style={{ color:'var(--text-3)',fontSize:'.86rem',marginBottom:'1.25rem' }}>Got a project or opportunity? Drop me a message.</p>
+              <div className="label"><span className="idx">08</span> Contact</div>
+              <h2 className="heading" style={{ marginBottom:6 }}>Let's work together</h2>
+              <p style={{ color:'var(--text-3)',fontSize:'.88rem',marginBottom:'1.4rem' }}>Got a project or opportunity? Drop me a message.</p>
               <ContactForm />
             </div>
           </section>
@@ -162,10 +159,10 @@ export default function ProfilePage() {
 
       {/* Footer */}
       <footer className="footer">
-        <div style={{ display:'flex',justifyContent:'center',gap:6,marginBottom:'.6rem' }}>
-          <a href="https://linkedin.com/in/jihed-oueslati-7981b91ba" target="_blank" rel="noopener noreferrer" className="soc" style={{ width:32,height:32,fontSize:'.85rem' }}><FaLinkedin /></a>
-          <a href="https://github.com/Jihedoueslatiii" target="_blank" rel="noopener noreferrer" className="soc" style={{ width:32,height:32,fontSize:'.85rem' }}><FaGithub /></a>
-          <a href="mailto:oueslatiijihed@outlook.com" className="soc" style={{ width:32,height:32,fontSize:'.85rem' }}><FaEnvelope /></a>
+        <div style={{ display:'flex',justifyContent:'center',gap:8,marginBottom:'.7rem' }}>
+          <a href="https://linkedin.com/in/jihed-oueslati-7981b91ba" target="_blank" rel="noopener noreferrer" className="soc" style={{ width:34,height:34,fontSize:'.88rem' }}><FaLinkedin /></a>
+          <a href="https://github.com/Jihedoueslatiii" target="_blank" rel="noopener noreferrer" className="soc" style={{ width:34,height:34,fontSize:'.88rem' }}><FaGithub /></a>
+          <a href="mailto:oueslatiijihed@outlook.com" className="soc" style={{ width:34,height:34,fontSize:'.88rem' }}><FaEnvelope /></a>
         </div>
         <p style={{ color:'var(--text-4)',fontSize:'.74rem' }}>
           Built by <span style={{ color:'var(--text-2)',fontWeight:600 }}>Jihed Oueslati</span> &copy; 2026. All rights reserved.
@@ -178,7 +175,7 @@ export default function ProfilePage() {
         className="btn scroll-top"
         style={{ opacity:0,transform:'translateY(10px)',pointerEvents:'none',transition:'opacity .3s, transform .3s' }}
       >
-        <FaArrowUp style={{ fontSize:'.75rem' }} />
+        <FaArrowUp style={{ fontSize:'.78rem' }} />
       </button>
     </div>
   );

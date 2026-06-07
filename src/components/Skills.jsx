@@ -14,15 +14,15 @@ export default function Skills() {
   const [tab, setTab] = useState('QA & Testing');
   return (
     <div>
-      <div className="label">Skills</div>
+      <div className="label"><span className="idx">06</span> Skills</div>
       <h2 className="heading">Technical toolkit</h2>
-      <div style={{ display:'flex',flexWrap:'wrap',gap:4,marginBottom:'.85rem' }}>
+      <div style={{ display:'flex',flexWrap:'wrap',gap:5,marginBottom:'1rem' }}>
         {Object.keys(data).map(c => <button key={c} onClick={() => setTab(c)} className={`tab ${tab===c?'on':''}`}>{c}</button>)}
       </div>
-      <div style={{ display:'grid',gridTemplateColumns:'repeat(auto-fill, minmax(145px, 1fr))',gap:5 }}>
+      <div key={tab} className="reveal-grid" style={{ display:'grid',gridTemplateColumns:'repeat(auto-fill, minmax(145px, 1fr))',gap:6 }}>
         {data[tab].map(s => (
-          <div key={s} className="card" style={{ padding:'.55rem .8rem',display:'flex',alignItems:'center',gap:6,cursor:'default' }}>
-            <div style={{ width:5,height:5,borderRadius:'50%',background:'var(--blue)',flexShrink:0 }} />
+          <div key={s} className="card" style={{ padding:'.6rem .85rem',display:'flex',alignItems:'center',gap:7,cursor:'default',opacity:1 }}>
+            <div style={{ width:6,height:6,borderRadius:'50%',background:'linear-gradient(135deg,var(--blue),var(--indigo))',flexShrink:0 }} />
             <span style={{ fontWeight:500,fontSize:'.8rem',color:'var(--text)' }}>{s}</span>
           </div>
         ))}
