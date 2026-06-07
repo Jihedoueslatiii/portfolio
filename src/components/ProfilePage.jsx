@@ -94,7 +94,7 @@ export default function ProfilePage() {
             <motion.div initial={{ opacity:0,scale:.92,y:8 }} animate={{ opacity:1,scale:1,y:0 }} transition={{ duration:.5,ease:[.22,1,.36,1] }} style={{ flexShrink:0 }}>
               <div className="hero-photo">
                 <img
-                  src={`${process.env.PUBLIC_URL}/Gemini_Generated_Image_tw9ff1tw9ff1tw9fa.png`}
+                  src={`${process.env.PUBLIC_URL}/profile.PNG`}
                   alt="Jihed Oueslati"
                 />
               </div>
